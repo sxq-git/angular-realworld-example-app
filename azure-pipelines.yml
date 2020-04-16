@@ -5,7 +5,7 @@ trigger:
 - master
 
 jobs:
-  - template: angular.build.yml
+#  - template: angular.build.yml
   - job: GenerateReleaseNotes
     steps:
     - task: PublishBuildArtifacts@1
