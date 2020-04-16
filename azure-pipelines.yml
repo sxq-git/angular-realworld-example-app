@@ -2,15 +2,15 @@
 trigger:
 - master
 
+#- script: echo Hello, world!
+#  displayName: 'Run a one-line script'
+
+#- script: |
+#    echo Add other tasks to build, test, and deploy your project.
+#    echo See!
+#  displayName: 'Run a multi-line script'
+
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See!
-  displayName: 'Run a multi-line script'
-
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
