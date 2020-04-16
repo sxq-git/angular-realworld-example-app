@@ -1,18 +1,15 @@
 
+name: $(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
 trigger:
 - master
 
-#- script: echo Hello, world!
-#  displayName: 'Run a one-line script'
-
-#- script: |
-#    echo Add other tasks to build, test, and deploy your project.
-#    echo See!
-#  displayName: 'Run a multi-line script'
-
-steps:
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'exampleApp'
-    publishLocation: 'Container'
+jobs:
+  - template: angular.build.yml
+  - job: GenerateReleaseNotes
+    steps:
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'exampleApp'
+        publishLocation: 'Container'
