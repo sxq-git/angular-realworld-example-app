@@ -10,3 +10,9 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See!
   displayName: 'Run a multi-line script'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'exampleApp'
+    publishLocation: 'Container'
