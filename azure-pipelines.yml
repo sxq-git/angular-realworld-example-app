@@ -2,7 +2,13 @@
 name: $(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 
 trigger:
-- master
+  branches:
+    include:
+      - master
+
+variables:
+  workingDir: 'HR.GEM.Frontend'
+  projectName: 'hr-gem-frontend'
 
 jobs:
 #  - template: angular.build.yml
